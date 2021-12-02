@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+header {
+    margin: 20px;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-style: bold;
+}
+
