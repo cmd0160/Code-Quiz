@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +29,12 @@ header h4 {
     border-radius: 8px;
 }
 
+.highscores:hover {
+    background-color: #09ff82; 
+    box-shadow: 1px 1px 8px grey;
+}
+
+
 
 .container {
     height: 500px;
@@ -42,8 +50,7 @@ header h4 {
 
 .container h1 {
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    font-family: 'Lobster', cursive;}
 
 .container p {
     margin: 0 40px;
@@ -60,3 +67,9 @@ header h4 {
     background-color: #09ff82;
     color: white;
 }
+
+.start:hover {
+    font-size: 21px;
+    box-shadow: 1px 1px 12px grey;
+}
+
