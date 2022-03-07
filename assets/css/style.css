@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #eca32c;
+    background-color: #ffda33;
 }
 
 header {
@@ -38,7 +38,8 @@ header h4 {
 
 .container {
     height: 500px;
-    margin: 2% 36%;
+    width: 500px;
+    margin: 2% 31%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -54,16 +55,17 @@ header h4 {
     font-size: 30px;
     font-family: 'Lobster', cursive;}
 
-.container p {
+.container li {
     margin: 0 40px;
     text-align: justify;
+    list-style-type: none;
 }
  
 .g-luck {
     margin: 0 0 15px 0;
 }
 
-.container button {
+.button {
     font-size: 20px;
     height: 40px;
     width: 200px;
@@ -74,7 +76,7 @@ header h4 {
     color: white;
 }
 
-.start:hover {
+.startBtn:hover {
     font-size: 21px;
     box-shadow: 1px 1px 12px grey;
 }

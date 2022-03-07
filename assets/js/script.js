@@ -3,7 +3,7 @@ let questions = [
     {
       question : "What does HTML stand for?",
       choiceA : "A. Hyper Text Markup Language",
-      choiceB : "B. HyperLinks and Text Markup Language",
+      choiceB : "B. H.L. and Text Markup Language",
       choiceC : "C. Home Tool Markup Language",
       choiceD : "D. Home and Tech Media Language",
       correct : "A"
@@ -17,23 +17,23 @@ let questions = [
       correct : "B"
     }];
 
+let codeQuizHeader = document.querySelector (".questions");
+let instructions = document.querySelector(".instructions");
+
+let answerChoiceContainer = document.querySelector (".answers");
+let answerA = document.querySelector(".answerA");
+let answerB = document.querySelector(".answerB");
+let answerC = document.querySelector(".answerC");
+let answerD = document.querySelector(".answerD");
 
 
-
-
-
-
-    
-var i = 0
-let addQuestion = document.querySelector (".UTBootCamp");
-let addAnswerChoice = document.querySelector (".answerContent")
 let answerButton = document.querySelector (".g-luck");
+let startBtn = document.querySelector(".startBtn");
+
+let goodLuck = document.querySelector(".g-luck");
 
 
-// define Start Button with a variable
-let startbtn = document.querySelector(".start");
-// added an EventListener so a click can occur
-startbtn.addEventListener("click", startQuiz);
+
 
 
 // added a function to show the questions
@@ -41,32 +41,34 @@ startbtn.addEventListener("click", startQuiz);
 function startQuiz () {
 
   // Clears the container
-  let questionContainer = document.querySelector(".instructions");
-  questionContainer.style.display = "none";
-  let goodLuckContainer = document.querySelector(".g-luck");
-  goodLuckContainer.style.display = "none";
-
-  // Adds Questions
-  addQuestion.innerHTML = questions[i].question;
-
-  // Adds Answer Buttons
-
-  // Adds Answer Button Content
-  addAnswerChoice.innerHTML = questions[i].choiceA;
-  // addAnswerChoice.innerHTML = questions[i].choiceB;
-  // addAnswerChoice.innerHTML = questions[i].choiceC;
-  // addAnswerChoice.innerHTML = questions[i].choiceD;
+  instructions.style.display = "none";
+  goodLuck.style.display = "none";
+  startBtn.style.display = "none";
 
 
-  
-  // let findDiv = document.querySelector (".questionContent");
-  // let questionTitle = document.createElement ("p");
-  // findDiv.append(questionTitle);
+  // Adds Question
+  codeQuizHeader.innerHTML = questions[0].question;
 
-  // let answerBtn = document.createElement ("button");
-  // findDiv.appendChild(answerChoice);
-  // answerChoice = questions[i].choiceA;
+  // Adds Answer Button/Button Content/New Styling
+  answerA.innerHTML = questions[0].choiceA;
+  answerA.className = "button startBtn:hover";
+  answerA.style.width = "350px";
 
+  answerB.innerHTML = questions[0].choiceB;
+  answerB.className = "button startBtn:hover";
+  answerB.style.width = "350px";
+
+  answerC.innerHTML = questions[0].choiceC;
+  answerC.className = "button startBtn:hover";
+  answerC.style.width = "350px";
+
+  answerD.innerHTML = questions[0].choiceD;
+  answerD.className = "button startBtn:hover";
+  answerD.style.width = "350px";
+
+}
+
+startBtn.addEventListener("click", startQuiz);
 
 
   function checkAnswer () {
@@ -83,22 +85,6 @@ function startQuiz () {
 
 
 
-  //create buttons for the choice options
-  //the buttons will have their own event listener on them
-  //The above event listner will need to:
-  //  1. check to see if the user is right
-  //  2. affect the score in some way (affect time left as well if they're wrong)
-  //  3. increment i (i++)
-}
 
-//you'll want a separate function for the 3 things above ^^
-//that way when you run an eventListener on the answer buttons you can feed it that function 
-//answerBtn.addEventListener("click", checkAnswer)
-
-    // create a function to render through questions
-    // for loop maybe?
-    //for(var i = 0; i < length of the questions; i++) {}
-    //i++ - we're going to increment i when a user clicks on an answer button
-    //when they click on the button i will move up by 1 and our index number on the array will move up with it
     
 
