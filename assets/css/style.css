@@ -22,7 +22,6 @@ header h4 {
     height: 50px;
     width: 200px;
     background-color: white;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,21 +73,14 @@ header h4 {
     box-shadow: 1px 1px 8px grey;
     background-color: #09ff82;
     color: white;
+    display: flex;
+    align-items: center;
+    /* Adjusted the answers */
+    padding-left: 5%;
 }
 
-.startBtn:hover {
+.button:hover {
     font-size: 21px;
     box-shadow: 1px 1px 12px grey;
 }
 
-/* .questionContent {
-    height: 500px;
-    margin: 2% 36%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background: white;
-    border-radius: 90px;
-    box-shadow: 1px 1px 14px grey;
-} */
