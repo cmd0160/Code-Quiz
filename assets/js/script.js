@@ -111,7 +111,7 @@ function startQuiz() {
 
   // Clears the container
   instructions.innerHTML = "";
-  goodLuck.style.display = "none";
+  goodLuck.innerHTML = "";
   startBtn.style.display = "none";
   totalScore.innerHTML = 0;
 
@@ -159,6 +159,12 @@ function questionItterator() {
 
 function endQuiz(){
   console.log('you finished...');
+  codeQuizHeader.innerHTML = "The quiz has ended!";
+  instructions.innerText = "Final Score: " + score;
+  answerA.style.display = 'none';
+  answerB.style.display = 'none';
+  answerC.style.display = 'none';
+  answerD.style.display = 'none';
 }
 
 
