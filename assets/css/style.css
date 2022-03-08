@@ -84,3 +84,22 @@ header h4 {
     box-shadow: 1px 1px 12px grey;
 }
 
+.answerButtons {
+    font-size: 20px;
+    height: 40px;
+    width: 350px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px grey;
+    background-color: #09ff82;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* Adjusted the answers */
+    padding-left: 5%;
+}
+
+.answerButtons:hover {
+    font-size: 21px;
+    box-shadow: 1px 1px 12px grey;
+}
