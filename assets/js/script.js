@@ -1,6 +1,7 @@
 let i = 0;
 let score = 0;
 
+
 const questions = [
   {
     question: "What does HTML stand for?",
@@ -8,7 +9,7 @@ const questions = [
     choiceB: "B. H.L. and Text Markup Language",
     choiceC: "C. Home Tool Markup Language",
     choiceD: "D. Home and Tech Media Language",
-    answer: "A. Hyper Text Markup Language",
+    answer: "A. Hyper Text Markup Language"
   },
   {
     question: "What tag is used to define a hyperlink, or link to another page?",
@@ -16,7 +17,7 @@ const questions = [
     choiceB: "B. a",
     choiceC: "C. blockquote",
     choiceD: "D. em",
-    answer: "B. a",
+    answer: "B. a"
   },
   {
     question : "What tag is required in all HTML documents, and is used to define the title?",
@@ -107,6 +108,7 @@ let goodLuck = document.querySelector(".g-luck");
 
 
 function startQuiz() {
+
   // Clears the container
   instructions.innerHTML = "";
   goodLuck.style.display = "none";
@@ -117,6 +119,7 @@ function startQuiz() {
 }
 
 function cycleQuestions() {
+  if(i <= questions.length - 1) {
     // Adds Question
     codeQuizHeader.innerHTML = questions[i].question;
     // Adds Answer Button/Button Content/New Styling
@@ -128,6 +131,9 @@ function cycleQuestions() {
     answerC.className = "answerButtons answerButtons:hover";
     answerD.innerHTML = questions[i].choiceD;
     answerD.className = "answerButtons answerButtons:hover";
+  } else {
+    endQuiz();
+  }
 }
 
 function checkAnswer(event) {
@@ -135,16 +141,27 @@ function checkAnswer(event) {
     instructions.innerText = "CORRECT!";
     score += 10;
     totalScore.innerHTML = score;
-    i++;
-    cycleQuestions();
+    questionItterator();
   } else {
     instructions.innerText = "NOPE!";
     score -= 5;
     totalScore.innerHTML = score;
+    questionItterator();
+  }
+}
+
+function questionItterator() {
+  if(questions[i] !== questions.length - 1) {
     i++;
     cycleQuestions();
   }
 }
+
+function endQuiz(){
+  console.log('you finished...');
+}
+
+
 answerA.addEventListener("click", checkAnswer);
 answerB.addEventListener("click", checkAnswer);
 answerC.addEventListener("click", checkAnswer);
