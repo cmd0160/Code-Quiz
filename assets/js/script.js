@@ -92,6 +92,9 @@ const questions = [
   },
 ];
 
+
+
+
 // Question elements
 let codeQuizHeader = document.querySelector(".questions");
 let instructions = document.querySelector(".ins");
@@ -113,6 +116,11 @@ let timer = document.querySelector(".timeEl");
 let goodLuck = document.querySelector(".g-luck");
 let totalTime = 75;
 let timeInterval;
+
+
+
+
+
 
 function countdown() {
   // setInterval to 1000ms.
