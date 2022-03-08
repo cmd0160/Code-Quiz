@@ -74,9 +74,8 @@ header h4 {
     background-color: #09ff82;
     color: white;
     display: flex;
+    justify-content: center;
     align-items: center;
-    /* Adjusted the answers */
-    padding-left: 5%;
 }
 
 .button:hover {
