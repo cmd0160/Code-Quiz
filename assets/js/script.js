@@ -1,3 +1,4 @@
+let i = 0;
 let score = 0;
 
 const questions = [
@@ -103,6 +104,8 @@ let totalScore = document.querySelector(".scoreEl");
 let timeLeft = document.querySelector(".timeEl");
 let goodLuck = document.querySelector(".g-luck");
 
+
+
 function startQuiz() {
   // Clears the container
   instructions.innerHTML = "";
@@ -114,8 +117,6 @@ function startQuiz() {
 }
 
 function cycleQuestions() {
-  console.log("cycle started");
-  for (i = 0; i <= questions.length; i++) {
     // Adds Question
     codeQuizHeader.innerHTML = questions[i].question;
     // Adds Answer Button/Button Content/New Styling
@@ -127,25 +128,26 @@ function cycleQuestions() {
     answerC.className = "answerButtons answerButtons:hover";
     answerD.innerHTML = questions[i].choiceD;
     answerD.className = "answerButtons answerButtons:hover";
+}
 
-    function checkAnswer(event) {
-      if (event.target.innerHTML == questions[i].answer) {
-        instructions.innerText = "CORRECT!";
-        score += 10;
-        totalScore.innerHTML = score;
-        cycleQuestions();
-      } else {
-        instructions.innerText = "NOPE!";
-        score -= 5;
-        totalScore.innerHTML = score;
-        cycleQuestions();
-      }
-    }
-    answerA.addEventListener("click", checkAnswer);
-    answerB.addEventListener("click", checkAnswer);
-    answerC.addEventListener("click", checkAnswer);
-    answerD.addEventListener("click", checkAnswer);
+function checkAnswer(event) {
+  if (event.target.innerHTML == questions[i].answer) {
+    instructions.innerText = "CORRECT!";
+    score += 10;
+    totalScore.innerHTML = score;
+    i++;
+    cycleQuestions();
+  } else {
+    instructions.innerText = "NOPE!";
+    score -= 5;
+    totalScore.innerHTML = score;
+    i++;
+    cycleQuestions();
   }
 }
+answerA.addEventListener("click", checkAnswer);
+answerB.addEventListener("click", checkAnswer);
+answerC.addEventListener("click", checkAnswer);
+answerD.addEventListener("click", checkAnswer);
 
 startBtn.addEventListener("click", startQuiz);
