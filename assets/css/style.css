@@ -50,7 +50,7 @@ header h4 {
 
 
 .container h1 {
-    margin: 30px 0 0 0;
+    margin: 30px auto 30px auto;
     font-size: 30px;
     font-family: 'Lobster', cursive;}
 
@@ -59,15 +59,22 @@ header h4 {
     text-align: justify;
     list-style-type: none;
 }
+
+.container ol {
+    margin: 30px auto 0 auto;
+    text-align: justify;
+    list-style-type: none;
+}
  
 .g-luck {
-    margin: 0 0 15px 0;
+    margin: auto;
 }
 
 .button {
     font-size: 20px;
     height: 40px;
     width: 200px;
+    margin: auto;
     border: none;
     border-radius: 8px;
     box-shadow: 1px 1px 8px grey;
