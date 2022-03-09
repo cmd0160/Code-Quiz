@@ -97,7 +97,6 @@ const questions = [
 
 // Question elements
 let codeQuizHeader = document.querySelector(".questions");
-let instructions = document.querySelector(".ins");
 
 // Answer elements
 let answerChoiceContainer = document.querySelector(".answers");
@@ -113,6 +112,8 @@ let startBtn = document.querySelector(".startBtn");
 // Other elements
 let totalScore = document.querySelector(".scoreEl");
 let timer = document.querySelector(".timeEl");
+let instructionsHeader = document.querySelector(".insHeader");
+let instructions = document.querySelector(".ins");
 let goodLuck = document.querySelector(".g-luck");
 let totalTime = 75;
 let timeInterval;
@@ -122,40 +123,43 @@ let timeInterval;
 
 
 
-function countdown() {
-  // setInterval to 1000ms.
-  timeInterval = setInterval(function () {
-    totalTime--;
-    timer.textContent = totalTime;
+// function countdown() {
+//   // setInterval to 1000ms.
+//   timeInterval = setInterval(function () {
+//     totalTime--;
+//     timer.textContent = totalTime;
 
-    // timer changes color to alert user that time is running out.
-    if (totalTime <= 0) {
-      clearInterval(timeInterval);
-      alert("Time's Up!");
-      totalTime = 0;
-      timer.textContent = "";
-      endQuiz();
-    } else if (totalTime < 31) {
-      timer.style.color = "orange";
-    } else if (totalTime < 11) {
-      timer.style.color = "red";
-    }
+//     // timer changes color to alert user that time is running out.
+//     if (totalTime <= 0) {
+//       clearInterval(timeInterval);
+//       alert("Time's Up!");
+//       totalTime = 0;
+//       timer.textContent = "";
+//       endQuiz();
+//     } else if (totalTime < 31) {
+//       timer.style.color = "orange";
+//     } else if (totalTime < 11) {
+//       timer.style.color = "red";
+//     }
 
-    // If user reaches last question before timer runs out, clearInterval
-    if (questions[i] == questions.length - 1) {
-      clearInterval(timeInterval);
-      endQuiz();
-    }
-  }, 1000);
-}
+//     // If user reaches last question before timer runs out, clearInterval
+//     if (questions[i] == questions.length - 1) {
+//       clearInterval(timeInterval);
+//       endQuiz();
+//     }
+//   }, 1000);
+// }
 
 function startQuiz() {
-  countdown();
+  // countdown();
+
   // Clears the container
+  instructionsHeader.innerHTML = "";
   instructions.innerHTML = "";
   goodLuck.innerHTML = "";
   startBtn.style.display = "none";
   totalScore.innerHTML = 0;
+
 
   cycleQuestions();
 }
