@@ -11,16 +11,16 @@ body {
 }
 
 header {
-  margin: 3% 5%;
-  padding: 0 20%;
+  margin: 3% 3%;
+  padding: 0 10%;
   font-size: 1rem;
   display: flex;
   justify-content: space-between;
 }
 
 header h4 {
-  height: 50px;
-  width: 200px;
+  height: 3rem;
+  width: 15rem;
   background-color: white;
   display: flex;
   justify-content: center;
