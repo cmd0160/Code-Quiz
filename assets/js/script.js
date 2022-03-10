@@ -115,56 +115,57 @@ let timer = document.querySelector(".timeEl");
 let instructionsHeader = document.querySelector(".insHeader");
 let instructions = document.querySelector(".ins");
 let goodLuck = document.querySelector(".g-luck");
+let affContainer = document.querySelector(".affirmation");
 let totalTime = 75;
 let timeInterval;
 
+answerChoiceContainer.style.display = "none";
 
 
+function countdown() {
+  // setInterval to 1000ms.
+  timeInterval = setInterval(function () {
+    totalTime--;
+    timer.textContent = totalTime;
 
+    // timer changes color to alert user that time is running out.
+    if (totalTime <= 0) {
+      clearInterval(timeInterval);
+      alert("Time's Up!");
+      totalTime = 0;
+      timer.textContent = "";
+      endQuiz();
+    } else if (totalTime < 31) {
+      timer.style.color = "orange";
+    } else if (totalTime < 11) {
+      timer.style.color = "red";
+    }
 
-
-// function countdown() {
-//   // setInterval to 1000ms.
-//   timeInterval = setInterval(function () {
-//     totalTime--;
-//     timer.textContent = totalTime;
-
-//     // timer changes color to alert user that time is running out.
-//     if (totalTime <= 0) {
-//       clearInterval(timeInterval);
-//       alert("Time's Up!");
-//       totalTime = 0;
-//       timer.textContent = "";
-//       endQuiz();
-//     } else if (totalTime < 31) {
-//       timer.style.color = "orange";
-//     } else if (totalTime < 11) {
-//       timer.style.color = "red";
-//     }
-
-//     // If user reaches last question before timer runs out, clearInterval
-//     if (questions[i] == questions.length - 1) {
-//       clearInterval(timeInterval);
-//       endQuiz();
-//     }
-//   }, 1000);
-// }
+    // If user reaches last question before timer runs out, clearInterval
+    if (questions[i] == questions.length - 1) {
+      clearInterval(timeInterval);
+      endQuiz();
+    }
+  }, 1000);
+}
 
 function startQuiz() {
-  // countdown();
+  
+  countdown();
 
   // Clears the container
   instructionsHeader.innerHTML = "";
-  instructions.innerHTML = "";
+  instructions.style.display = "none";
   goodLuck.innerHTML = "";
   startBtn.style.display = "none";
   totalScore.innerHTML = 0;
-
 
   cycleQuestions();
 }
 
 function cycleQuestions() {
+  answerChoiceContainer.style = null;
+
   if (i <= questions.length - 1) {
     // Adds Question
     codeQuizHeader.innerHTML = questions[i].question;
@@ -184,12 +185,12 @@ function cycleQuestions() {
 
 function checkAnswer(event) {
   if (event.target.innerHTML == questions[i].answer) {
-    instructions.innerText = "CORRECT!";
+    affContainer.innerText = "CORRECT!";
     score += 10;
     totalScore.innerHTML = score;
     questionItterator();
   } else {
-    instructions.innerText = "NOPE!";
+    affContainer.innerText = "NOPE!";
     score -= 5;
     totalTime -= 10;
     totalScore.innerHTML = score;
