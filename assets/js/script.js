@@ -116,42 +116,45 @@ let instructionsHeader = document.querySelector(".insHeader");
 let instructions = document.querySelector(".ins");
 let goodLuck = document.querySelector(".g-luck");
 let affContainer = document.querySelector(".affirmation");
+const initialsTextBtn = document.createElement("input");
+const initialsText = document.createElement("input");
+
 let totalTime = 75;
 let timeInterval;
 
 answerChoiceContainer.style.display = "none";
 
 
-function countdown() {
-  // setInterval to 1000ms.
-  timeInterval = setInterval(function () {
-    totalTime--;
-    timer.textContent = totalTime;
+// function countdown() {
+//   // setInterval to 1000ms.
+//   timeInterval = setInterval(function () {
+//     totalTime--;
+//     timer.textContent = totalTime;
 
-    // timer changes color to alert user that time is running out.
-    if (totalTime <= 0) {
-      clearInterval(timeInterval);
-      alert("Time's Up!");
-      totalTime = 0;
-      timer.textContent = "";
-      endQuiz();
-    } else if (totalTime < 31) {
-      timer.style.color = "orange";
-    } else if (totalTime < 11) {
-      timer.style.color = "red";
-    }
+//     // timer changes color to alert user that time is running out.
+//     if (totalTime <= 0) {
+//       clearInterval(timeInterval);
+//       // alert("Time's Up!");
+//       totalTime = 0;
+//       timer.textContent = "";
+//       endQuiz();
+//     } else if (totalTime < 31) {
+//       timer.style.color = "orange";
+//     } else if (totalTime < 11) {
+//       timer.style.color = "red";
+//     }
 
-    // If user reaches last question before timer runs out, clearInterval
-    if (questions[i] == questions.length - 1) {
-      clearInterval(timeInterval);
-      endQuiz();
-    }
-  }, 1000);
-}
+//     // If user reaches last question before timer runs out, clearInterval
+//     if (questions[i] == questions.length - 1) {
+//       clearInterval(timeInterval);
+//       endQuiz();
+//     }
+//   }, 1000);
+// }
 
 function startQuiz() {
   
-  countdown();
+  // countdown();
 
   // Clears the container
   instructionsHeader.innerHTML = "";
@@ -206,13 +209,24 @@ function questionItterator() {
 }
 
 function endQuiz() {
-  console.log("you finished...");
-  codeQuizHeader.innerHTML = "The quiz has ended!";
-  instructions.innerText = "Final Score: " + score;
-  answerA.style.display = "none";
-  answerB.style.display = "none";
-  answerC.style.display = "none";
-  answerD.style.display = "none";
+  const initialsText = document.createElement("input");
+  initialsText.setAttribute('type', 'text');
+  initialsTextBtn.setAttribute('type', "submit");
+  initialsTextBtn.setAttribute('value', "Submit");
+
+  codeQuizHeader.innerHTML = "The quiz has ended!" + " Your final score is: " + score;
+  instructionsHeader.innerHTML = "Enter your initials to store your high score!";
+  instructions.innerHTML = "";
+
+  goodLuck.append(initialsText);  
+  goodLuck.append(initialsTextBtn);  
+
+  answerChoiceContainer.style.display = "none";
+  affContainer.style.display = "none";
+}
+
+function highScoreSubmit(event) {
+console.log(initialsText.value);
 }
 
 answerA.addEventListener("click", checkAnswer);
@@ -221,3 +235,4 @@ answerC.addEventListener("click", checkAnswer);
 answerD.addEventListener("click", checkAnswer);
 
 startBtn.addEventListener("click", startQuiz);
+initialsTextBtn.addEventListener("click", highScoreSubmit)
